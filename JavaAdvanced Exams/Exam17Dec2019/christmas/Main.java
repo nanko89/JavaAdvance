@@ -1,4 +1,4 @@
-package christmas;
+package Exam17Dec2019.christmas;
 
 public class Main {
     public static void main(String[] args) {

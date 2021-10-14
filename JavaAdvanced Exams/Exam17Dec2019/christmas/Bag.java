@@ -1,25 +1,25 @@
-package christmas;
+package Exam17Dec2019.christmas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bag {
+    private List<Present> data;
     private String color;
     private int capacity;
-    private List<Present> data;
 
     public Bag(String color, int capacity) {
-        this.color = color.substring(0,1).toUpperCase() + color.substring(1).toLowerCase();;
+        this.color = color;
         this.capacity = capacity;
         this.data = new ArrayList<>();
     }
 
-    public String getColor() {
-        return color;
-    }
-
     public int getCapacity() {
         return capacity;
+    }
+
+    public String getColor() {
+        return this.color;
     }
 
     public int count(){
@@ -43,32 +43,30 @@ public class Bag {
     }
 
     public Present heaviestPresent(){
-        Present heaviestPresent = null;
+        Present newPresent = null;
         for (Present present : this.data) {
-            heaviestPresent = present;
-            if (present.getWeight() > heaviestPresent.getWeight()){
-                heaviestPresent = present;
+            if (newPresent == null || present.getWeight() > newPresent.getWeight()){
+                newPresent = present;
             }
         }
-        return  heaviestPresent;
+        return newPresent;
     }
 
     public Present getPresent(String name){
-        Present currentPresent = null;
+        Present newPresent = null;
         for (Present present : this.data) {
             if (present.getName().equals(name)){
-                currentPresent = present;
+                newPresent = present;
             }
         }
-        return currentPresent;
+        return newPresent;
     }
 
-    public String report(){
-        StringBuilder sb = new StringBuilder(String.format("%s bag contains:%n", this.color));
+    public String report() {
+        StringBuilder str = new StringBuilder(String.format("%s bag contains:%n", this.getColor()));
         for (Present present : this.data) {
-            sb.append(present.toString())
-            .append(System.lineSeparator());
+            str.append(present.toString()).append(System.lineSeparator());
         }
-        return sb.toString().trim();
+        return str.toString().trim();
     }
 }

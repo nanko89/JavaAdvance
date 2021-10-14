@@ -1,4 +1,4 @@
-package christmas;
+package Exam17Dec2019.christmas;
 
 public class Present {
     private String name;
@@ -26,6 +26,6 @@ public class Present {
     @Override
     public String toString() {
         return String.format("Present %s (%.2f) for a %s",
-                this.name,this.weight,this.gender);
+                this.name, this.weight, this.gender);
     }
 }
